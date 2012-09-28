@@ -16,4 +16,3 @@ function(i.curva.map,i.criterio=3){
   resultados<-curva.map[x==optimo,]
   return(resultados)
 }
-

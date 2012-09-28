@@ -13,13 +13,13 @@ This package creates the model described in the \emph{Moving Epidemics Method} (
 Package: \tab mem\cr
 Type: \tab Package\cr
 Title: \tab Moving Epidemics Method R Package.\cr
-Version: \tab 1.0\cr
-Date: \tab 2010-11-26\cr
+Version: \tab 1.2\cr
+Date: \tab 2012-09-28\cr
 Author: \tab Jose E. Lozano Alonso <lozalojo@jcyl.es>\cr
 Maintainer: \tab Jose E. Lozano Alonso <lozalojo@jcyl.es>\cr
 Depends: \tab R (>= 2.12.0)\cr
 Description: \tab Modelization of influenza epidemics in order to monitor future activity.\cr
-License: \tab GPL (version 2 or later)\cr
+License: \tab GPL (>= 2)\cr
 }
 Functions to calculate the optimal timing of the epidemic and a threshold to give an early alert of the upcoming epidemic.
 }
@@ -27,7 +27,8 @@ Functions to calculate the optimal timing of the epidemic and a threshold to giv
 Jose E. Lozano Alonso <lozalojo@jcyl.es>.
 }
 \references{
-Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning and predict the intensity and duration? International Congress Series 1263 (2004) 281-283.
+Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning and predict the intensity and duration? International Congress Series 1263 (2004) 281-283.\cr
+Vega T., Lozano J.E. (2012) Influenza surveillance in Europe: establishing epidemic thresholds by the Moving Epidemic Method. Influenza and Other Respiratory Viruses, DOI:10.1111/j.1750-2659.2012.00422.x.
 }
 \keyword{ package }
 \examples{
@@ -36,7 +37,7 @@ require(mem)
 ## Castilla y Leon Influenza Rates data 
 data(flucyl)
 ## Optimal timing of an epidemic
-tim<-epitiming(flucyl[,1])
+tim<-epitiming(flucyl[1])
 print(tim)
 summary(tim)
 plot(tim)

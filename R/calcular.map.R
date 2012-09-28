@@ -17,4 +17,3 @@ function(i.datos){
 	maxsumasemanas[,2]<-100*maxsumasemanas[,3]/sumaanual
 	return(maxsumasemanas)
 }
-

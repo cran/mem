@@ -8,4 +8,3 @@ function(datos,nivel=0.95,ic=T,colas=2){
 		return(rep(NA,3))
 	}
 }
-

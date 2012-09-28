@@ -6,4 +6,3 @@ function(i.datos){
 	idatos.fin[donde.missing]<-idatos.smo[donde.missing]
 	return(idatos.fin)
 }
-

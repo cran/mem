@@ -9,4 +9,3 @@ function(i.epi){
   names(resultado)<-rep(names(i.epi),each=m)
   return(resultado)
 }
-

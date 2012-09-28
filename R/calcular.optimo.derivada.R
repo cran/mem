@@ -13,4 +13,3 @@ function(i.curva.map){
   }
   return(resultados)
 }
-

@@ -5,4 +5,3 @@ function(normalizar.i.datos){
   resultado<-(normalizar.i.datos-minimo)/(maximo-minimo)
 	return(resultado)
 }
-

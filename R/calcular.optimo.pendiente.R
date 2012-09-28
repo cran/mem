@@ -11,4 +11,3 @@ function(i.curva.map){
   resultados<-i.curva.map[x==optimo,]
   return(resultados)
 }
-

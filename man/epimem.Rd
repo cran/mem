@@ -11,7 +11,7 @@ Function \code{epimem} is used to calculate the threshold for influenza epidemic
 The method to calculate the threshold is described in the Moving Epidemics Method (MEM) used to monitor influenza activity in a weekly surveillance system.
 }
 \usage{
-epimem(i.data, i.type = 2, i.level = 0.95, i.type.curve = 2, i.level.curve = 0.95, i.type.threshold = 5, i.level.threshold = 0.95, i.n.max = -1, i.tails = 1, i.type.boot = "norm", i.iter.boot = 10000, i.method = 2, i.param = 2.8)
+epimem(i.data, i.type = 2, i.level = 0.95, i.type.curve = 2, i.level.curve = 0.95, i.type.threshold = 5, i.level.threshold = 0.95, i.n.max = -1, i.tails = 1, i.type.boot = "norm", i.iter.boot = 10000, i.method = 2, i.param = 2.8, i.levels = c(0.40,0.90,0.975), i.seasons = 10)
 \method{print}{flu}(x, ...)
 \method{summary}{flu}(object, ...)
 \method{plot}{flu}(x, ...)
@@ -56,6 +56,12 @@ Method to calculate the optimal timing of the epidemic.
   \item{i.param}{
 Parameter to calculate the optimal timing of the epidemic.
 }
+  \item{i.levels}{
+Levels of the intensity thresholds.
+}
+  \item{i.seasons}{
+Maximum number of seasons to use.
+}
   \item{x}{
 An \code{flu} class item.
 }
@@ -99,7 +105,8 @@ An object of class \code{flu} is a list containing at least the following compon
   \item{n.max }{Effective number of pre epidemic values.}
 }
 \references{
-Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning and predict the intensity and duration? International Congress Series 1263 (2004) 281-283.
+Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning and predict the intensity and duration? International Congress Series 1263 (2004) 281-283.\cr
+Vega T., Lozano J.E. (2012) Influenza surveillance in Europe: establishing epidemic thresholds by the Moving Epidemic Method. Influenza and Other Respiratory Viruses, DOI:10.1111/j.1750-2659.2012.00422.x.
 }
 \author{
 Jose E. Lozano Alonso <lozalojo@jcyl.es>. 

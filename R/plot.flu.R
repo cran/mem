@@ -21,7 +21,7 @@ function(x,...){
   ya<-limite.superior*0.975
   if ((i.temporada-1)<=(semanas-f.temporada)){
     xa<-semanas*0.99
-   legend(x="topright",xjust=1,legend=names(x$i.data),lty=tipos,lwd=anchos,col=colores,cex=0.75)
+   	legend(x="topright",xjust=1,legend=names(x$i.data),lty=tipos,lwd=anchos,col=colores,cex=0.75)
   }else{
     xa<-semanas*0.01
     legend(x="topleft",legend=names(x$i.data),lty=tipos,lwd=anchos,col=colores,cex=0.75)
@@ -56,4 +56,3 @@ function(x,...){
   text(xa,ya,texto,pos=posiciones,col=colores,cex=tamanios)
   par(opar)
 }
-

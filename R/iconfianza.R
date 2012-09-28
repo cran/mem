@@ -16,4 +16,3 @@ function(datos,nivel=0.95,tipo=1,ic=T,tipo.boot="normal",iteraciones.boot=10000,
 		return(iconfianza.logx(datos,nivel,ic,colas))
 	}
 }
-

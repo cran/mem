@@ -13,6 +13,5 @@ function(i.datos,i.n.values=5,i.metodo=2,i.parametro=2.8){
   }else{
     post.epi<-max.n.valores(datos,i.n.values)
   }
-  return(list(datos=datos,curva.map=curva.map,optimo.map=optimo.map,pre.epi=pre.epi,post.epi=post.epi))
+  return(list(datos=i.datos,curva.map=curva.map,optimo.map=optimo.map,pre.epi=pre.epi,post.epi=post.epi))
 }
-

@@ -63,7 +63,8 @@ An object of class \code{epidemic} is a list containing at least the following c
   \item{post.epi }{post-epidemic highest rates} 
 }
 \references{
-Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning and predict the intensity and duration? International Congress Series 1263 (2004) 281-283.
+Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning and predict the intensity and duration? International Congress Series 1263 (2004) 281-283.\cr
+Vega T., Lozano J.E. (2012) Influenza surveillance in Europe: establishing epidemic thresholds by the Moving Epidemic Method. Influenza and Other Respiratory Viruses, DOI:10.1111/j.1750-2659.2012.00422.x.
 }
 \author{
 Jose E. Lozano Alonso <lozalojo@jcyl.es>.
@@ -74,7 +75,7 @@ library(mem)
 ## Castilla y Leon Influenza Rates data 
 data(flucyl)
 ## Finds the timing of the first season: 2001/2002
-tim<-epitiming(flucyl[,1])
+tim<-epitiming(flucyl[1])
 print(tim)
 summary(tim)
 plot(tim)

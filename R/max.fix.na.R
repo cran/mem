@@ -8,4 +8,3 @@ function(minputdata){
 		return(max(minputdata,na.rm=T))
 	}
 }
-

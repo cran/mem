@@ -28,4 +28,3 @@ function(datos,q=0.50,nivel=0.95,ic=T,tipo.boot="norm",iteraciones.boot=10000,co
   	}
 	} else return(rep(NA,3))
 }
-

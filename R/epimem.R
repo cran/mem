@@ -1,6 +1,6 @@
 epimem <-
-function(i.data,i.type=2,i.level=0.95,i.type.curve=2,i.level.curve=0.95,i.type.threshold=5,i.level.threshold=0.95,i.n.max=-1,i.tails=1,i.type.boot="norm",i.iter.boot=10000,i.method=2,i.param=2.8){
-  res<-influenza(i.data,i.type,i.level,i.type.curve,i.level.curve,i.type.threshold,i.level.threshold,i.n.max,i.tails,i.type.boot,i.iter.boot,i.method,i.param)
+function(i.data,i.type=2,i.level=0.95,i.type.curve=2,i.level.curve=0.95,i.type.threshold=5,i.level.threshold=0.95,i.n.max=-1,i.tails=1,i.type.boot="norm",i.iter.boot=10000,i.method=2,i.param=2.8,i.levels=c(0.40,0.90,0.975),i.seasons=10){
+  res<-influenza(i.data,i.type,i.level,i.type.curve,i.level.curve,i.type.threshold,i.level.threshold,i.n.max,i.tails,i.type.boot,i.iter.boot,i.method,i.param,i.levels,i.seasons)
   res.final<-list(
     i.data=res$i.datos,
     pre.post.intervals=res$pre.post.intervalos,
@@ -22,10 +22,13 @@ function(i.data,i.type=2,i.level=0.95,i.type.curve=2,i.level.curve=0.95,i.type.t
     param.param=res$parametro.parametro,
     param.n.max=res$parametro.n.max,
     param.tails=res$parametro.colas,
+    param.levels=res$parametro.niveles,
+    param.max.seasons=res$parametro.n.max.temp,
+    n.seasons=res$n.temporadas,
+    n.weeks=res$n.semanas,
     param.type.boot=res$parametro.tipo.boot,
     param.iter.boot=res$parametro.iteraciones.boot)
   res.final$call<-match.call()
   class(res.final)<-"flu"
   return(res.final)
 }
-

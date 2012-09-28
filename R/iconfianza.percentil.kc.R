@@ -21,4 +21,3 @@ function(datos,q=0.50,nivel=0.95,ic=T,colas=2){
   }
 	if (ic) return(c(l.i,med,l.s)) else return(rep(med,3))
 }
-

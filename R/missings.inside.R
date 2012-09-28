@@ -9,4 +9,3 @@ function(a){
 	if (ultimo.no.na<ene) posiciones.na[(ultimo.no.na+1):ene]<-FALSE
 	return(posiciones.na)
 }
-

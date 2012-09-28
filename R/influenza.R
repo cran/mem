@@ -1,5 +1,5 @@
 influenza <-
-function(i.datos,i.tipo=2,i.nivel=0.95,i.tipo.curva=2,i.nivel.curva=0.95,i.tipo.umbral=5,i.nivel.umbral=0.95,i.n.max=-1,i.colas=1,i.tipo.boot="normal",i.iteraciones.boot=10000,i.metodo=2,i.parametro=2.8){
+function(i.datos,i.tipo=2,i.nivel=0.95,i.tipo.curva=2,i.nivel.curva=0.95,i.tipo.umbral=5,i.nivel.umbral=0.95,i.n.max=-1,i.colas=1,i.tipo.boot="normal",i.iteraciones.boot=10000,i.metodo=2,i.parametro=2.8,i.niveles=c(0.40,0.90,0.975),i.n.max.temp=10){
 
   #i.datos<-cyl
   #i.tipo=2
@@ -13,8 +13,11 @@ function(i.datos,i.tipo=2,i.nivel=0.95,i.tipo.curva=2,i.nivel.curva=0.95,i.tipo.
   #i.tipo.boot=NA
   #i.iteraciones.boot=NA
   #i.metodo=1
-  #i.parametro=-1
-
+  #i.niveles=c(0.40,c.90,0.975)
+  #i.n.max.temp=-1
+  
+  if (i.n.max.temp>0) i.datos<-i.datos[(max((dim(i.datos)[2])-i.n.max.temp+1,1)):(dim(i.datos)[2])]
+  
 	datos<-apply(i.datos,2,fill.missing)
 	
 	semanas<-dim(datos)[1]
@@ -198,9 +201,8 @@ function(i.datos,i.tipo=2,i.nivel=0.95,i.tipo.curva=2,i.nivel.curva=0.95,i.tipo.
 	post.i<-iconfianza(post.d,nivel=i.nivel.umbral,tipo=i.tipo.umbral,ic=T,tipo.boot=i.tipo.boot,iteraciones.boot=i.iteraciones.boot,colas=i.colas)
 	pre.post.intervalos<-rbind(pre.i,post.i)
 	epi.intervalos<-numeric()
-	#niveles<-c(0.50,0.80,0.90,0.95,0.99)
-	niveles<-c(0.50,0.90,0.95)
-	for (niv in niveles){
+	#niveles<-c(0.50,0.90,0.95)
+	for (niv in i.niveles){
  	  epi.intervalos<-rbind(epi.intervalos,c(niv,iconfianza(epi.datos,nivel=niv,tipo=6,ic=T,colas=i.colas)))
  	}
    	
@@ -231,7 +233,11 @@ function(i.datos,i.tipo=2,i.nivel=0.95,i.tipo.curva=2,i.nivel.curva=0.95,i.tipo.
     parametro.iteraciones.boot=i.iteraciones.boot,
     parametro.metodo=i.metodo,
     parametro.parametro=i.parametro,
+    parametro.niveles=i.niveles,
+    parametro.n.max.temp=i.n.max.temp,
     semana.inicio=semana.inicio,
+    n.temporadas=anios,
+    n.semanas=semanas,
     n.max=n.max,
     optimo=optimo,
     datos.duracion.real=datos.duracion.real,
@@ -252,4 +258,3 @@ function(i.datos,i.tipo=2,i.nivel=0.95,i.tipo.curva=2,i.nivel.curva=0.95,i.tipo.
     epi.intervalos=epi.intervalos)
 	return(resultados)
 }
-

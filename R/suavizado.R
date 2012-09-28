@@ -10,4 +10,3 @@ function(i.datos,hsuav=-1){
 	salida[is.nan(salida)]<-NA
 	return(salida)
 }
-

@@ -14,4 +14,3 @@ function(i.curva.map,i.hsuav){
   resultados<-i.curva.map[x==optimo,]
   return(resultados)
 }
-

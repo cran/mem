@@ -12,4 +12,3 @@ function(i.curva.map,i.metodo,i.parametro){
   #if (i.metodo==5) resultados<-calcular.optimo.varadhan(i.curva.map,i.parametro)
   return(resultados)
 }
-

@@ -8,4 +8,3 @@ function(minputdata){
 		return(min(minputdata,na.rm=T))
 	}
 }
-

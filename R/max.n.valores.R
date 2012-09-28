@@ -6,4 +6,3 @@ function(mis.datos,n.max=1){
 	if (n.max>0) resultado<-ordenado[1:n.max] else resultado<-ordenado
 	return(resultado)
 }
-
