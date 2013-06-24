@@ -1,4 +1,4 @@
-export(epitiming, epimem)
+export(epitiming, epimem, memintensity, memtrend)
 
 S3method(plot, epidemic)
 S3method(summary, epidemic)

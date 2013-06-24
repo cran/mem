@@ -22,6 +22,7 @@
 \alias{iconfianza.logx}
 \alias{iconfianza.percentil.kc}
 \alias{iconfianza.percentil.boot}
+\alias{iconfianza.completo}
 \alias{extraer.datos.optimo.map}
 \alias{extraer.datos.pre.epi}
 \alias{extraer.datos.post.epi}
@@ -34,6 +35,7 @@
 Internal functions for mem package
 }
 \description{
-These are internal functions used by the mem package and for use of the program, it cant be used by the user since they have not been designed for general use.
+These are internal functions used by the mem package and for use of the program, it 
+cant be used by the user since they have not been designed for general use.
 }
 

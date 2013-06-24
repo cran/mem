@@ -4,14 +4,19 @@
 \alias{plot.flu}
 \alias{print.flu}
 \title{
-Threshold for Influenza Epidemic
+Methods for influenza modelization
 }
 \description{
-Function \code{epimem} is used to calculate the threshold for influenza epidemic using historical records (surveillance rates).\cr 
-The method to calculate the threshold is described in the Moving Epidemics Method (MEM) used to monitor influenza activity in a weekly surveillance system.
+Function \code{epimem} is used to calculate the threshold for influenza epidemic using historical 
+records (surveillance rates).\cr 
+The method to calculate the threshold is described in the Moving Epidemics Method (MEM) used to 
+monitor influenza activity in a weekly surveillance system.
 }
 \usage{
-epimem(i.data, i.type = 2, i.level = 0.95, i.type.curve = 2, i.level.curve = 0.95, i.type.threshold = 5, i.level.threshold = 0.95, i.n.max = -1, i.tails = 1, i.type.boot = "norm", i.iter.boot = 10000, i.method = 2, i.param = 2.8, i.levels = c(0.40,0.90,0.975), i.seasons = 10)
+epimem(i.data, i.type = 2, i.level = 0.95, i.type.curve = 2, i.level.curve = 0.95, 
+       i.type.threshold = 5, i.level.threshold = 0.95, i.n.max = -1, i.tails = 1, 
+       i.type.boot = "norm", i.iter.boot = 10000, i.method = 2, i.param = 2.8, 
+	   i.levels = c(0.40,0.90,0.975), i.seasons = 10)
 \method{print}{flu}(x, ...)
 \method{summary}{flu}(object, ...)
 \method{plot}{flu}(x, ...)
@@ -73,9 +78,15 @@ Not used.
 }
 }
 \details{
-Input data is a matrix containing rates that represent historical influenza surveillance data. It can start and end at any given week (tipically at week 40th), and rates can be expressed as per 100,000 inhabitants (or per consultations, if population is not available) or any other scale.\cr
-Parameters \code{i.type}, \code{i.type.threshold} and \code{i.type.curve} defines how to calculate confidence intervals along the process.\cr
-\code{i.type.curve} is used for calculating the typical influenza curve, \code{i.type.threshold} is used to calculate the pre and post epidemic threshold and \code{i.type} is used for any other confidende interval used in the method.\cr
+Input data is a matrix containing rates that represent historical influenza surveillance 
+data. It can start and end at any given week (tipically at week 40th), and rates can be 
+expressed as per 100,000 inhabitants (or per consultations, if population is not 
+available) or any other scale.\cr
+Parameters \code{i.type}, \code{i.type.threshold} and \code{i.type.curve} defines how to 
+calculate confidence intervals along the process.\cr
+\code{i.type.curve} is used for calculating the typical influenza curve, 
+\code{i.type.threshold} is used to calculate the pre and post epidemic threshold and 
+\code{i.type} is used for any other confidende interval used in the method.\cr
 All three parameters must be a number between \code{1} and \code{6}:\cr
 \tabular{rlll}{
 \tab \code{1} \tab Arithmetic mean and mean confidence interval.\cr
@@ -85,16 +96,27 @@ All three parameters must be a number between \code{1} and \code{6}:\cr
 \tab \code{5} \tab Arithmetic mean and point confidence interval (standard deviations).\cr
 \tab \code{6} \tab Geometric mean and point confidence interval (standard deviations).\cr
 }
-Option \code{4} uses two more parameters: \code{i.type.boot} indicates which bootstrap method to use. The values are the same of those of the \code{\link{boot.ci}} function. Parameter \code{i.iter.boot} indicates the number of bootstrap samples to use. See \code{\link{boot}} for more information about this topic.\cr
-Parameters \code{i.level}, \code{i.level.threshold} and \code{i.level.curve} indicates, respectively, the level of the confidence intervals described above.\cr
-The \code{i.n.max} parameter indicates how many pre epidemic values to use to calculate the threshold. A value of -1 indicates the program to use an appropiate number of points depending on the number of seasons provided as input. \code{i.tails} tells the program to use {1} or {2} tailed confidence intervals when calculating the threshold (1 is recommended).\cr
-Parameters \code{i.method} and \code{i.param} indicates how to find the optimal timing of the epidemics. See \code{\link{epitiming}} for details on the values this parameters can have.
+Option \code{4} uses two more parameters: \code{i.type.boot} indicates which bootstrap 
+method to use. The values are the same of those of the \code{\link{boot.ci}} function. 
+Parameter \code{i.iter.boot} indicates the number of bootstrap samples to use. See 
+\code{\link{boot}} for more information about this topic.\cr
+Parameters \code{i.level}, \code{i.level.threshold} and \code{i.level.curve} indicates, 
+respectively, the level of the confidence intervals described above.\cr
+The \code{i.n.max} parameter indicates how many pre epidemic values to use to calculate 
+the threshold. A value of -1 indicates the program to use an appropiate number of points 
+depending on the number of seasons provided as input. \code{i.tails} tells the program 
+to use {1} or {2} tailed confidence intervals when calculating the threshold (1 is 
+recommended).\cr
+Parameters \code{i.method} and \code{i.param} indicates how to find the optimal timing 
+of the epidemics. See \code{\link{epitiming}} for details on the values this parameters 
+can have.
 }
 \value{
 \code{epimem} returns an object of class \code{flu}. 
 An object of class \code{flu} is a list containing at least the following components: 
   \item{i.data }{input data}
-  \item{pre.post.intervals }{Pre/post confidence intervals (Threhold is the upper limit of the confidence interval).}
+  \item{pre.post.intervals }{Pre/post confidence intervals (Threhold is the upper limit 
+  of the confidence interval).}
   \item{ci.length }{Mean epidemic length confidence interval.}
   \item{ci.percent }{Mean covered percentage confidence interval.}
   \item{mean.length }{Mean length.}
@@ -105,8 +127,12 @@ An object of class \code{flu} is a list containing at least the following compon
   \item{n.max }{Effective number of pre epidemic values.}
 }
 \references{
-Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning and predict the intensity and duration? International Congress Series 1263 (2004) 281-283.\cr
-Vega T., Lozano J.E. (2012) Influenza surveillance in Europe: establishing epidemic thresholds by the Moving Epidemic Method. Influenza and Other Respiratory Viruses, DOI:10.1111/j.1750-2659.2012.00422.x.
+Vega T., Lozano J.E. (2004) Modelling influenza epidemic - can we detect the beginning 
+and predict the intensity and duration? International Congress Series 1263 (2004) 
+281-283.\cr
+Vega T., Lozano J.E. (2012) Influenza surveillance in Europe: establishing epidemic 
+thresholds by the Moving Epidemic Method. Influenza and Other Respiratory Viruses, 
+DOI:10.1111/j.1750-2659.2012.00422.x.
 }
 \author{
 Jose E. Lozano Alonso <lozalojo@jcyl.es>. 
