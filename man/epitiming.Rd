@@ -98,8 +98,6 @@ DOI:10.1111/j.1750-2659.2012.00422.x.
 Jose E. Lozano Alonso <lozalojo@jcyl.es>.
 }
 \examples{
-library(mem)
-
 ## Castilla y Leon Influenza Rates data 
 data(flucyl)
 ## Finds the timing of the first season: 2001/2002

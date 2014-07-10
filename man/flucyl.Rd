@@ -44,7 +44,6 @@ Influenza Surveillance Programme (Programa de vigilancia de la gripe:
 \url{http://www.salud.jcyl.es/centinelas}).
 }
 \examples{
-library(mem)
 data(flucyl)
 plot(flucyl[,1],type="l")
 }

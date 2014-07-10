@@ -14,14 +14,14 @@ memtrend(i.data, i.seasons = 10)
 }
 \arguments{
   \item{i.data}{
-Matrix of input data.
+Data frame of input data.
 }
   \item{i.seasons}{
 Maximum number of seasons to use.
 }
 }
 \details{
-Input data is a matrix containing rates that represent historical influenza surveillance 
+Input data is a data frame containing rates that represent historical influenza surveillance 
 data. It can start and end at any given week (tipically at week 40th), and rates can be 
 expressed as per 100,000 inhabitants (or per consultations, if population is not 
 available) or any other scale.\cr
@@ -61,8 +61,6 @@ DOI:10.1111/j.1750-2659.2012.00422.x.
 Jose E. Lozano Alonso <lozalojo@jcyl.es>. 
 }
 \examples{
-library(mem)
-
 ## Castilla y Leon Influenza Rates data 
 data(flucyl)
 ## Finds the timing of the first season: 2001/2002

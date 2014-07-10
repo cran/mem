@@ -16,6 +16,8 @@ function(i.datos,i.tipo=2,i.nivel=0.95,i.tipo.curva=2,i.nivel.curva=0.95,i.tipo.
   #i.niveles=c(0.40,c.90,0.975)
   #i.n.max.temp=-1
   
+  if (is.matrix(i.datos)) i.datos<-as.data.frame(i.datos)
+  
   if (i.n.max.temp>0) i.datos<-i.datos[(max((dim(i.datos)[2])-i.n.max.temp+1,1)):(dim(i.datos)[2])]
   
 	datos<-apply(i.datos,2,fill.missing)

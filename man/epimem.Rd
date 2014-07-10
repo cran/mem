@@ -13,17 +13,18 @@ The method to calculate the threshold is described in the Moving Epidemics Metho
 monitor influenza activity in a weekly surveillance system.
 }
 \usage{
-epimem(i.data, i.type = 2, i.level = 0.95, i.type.curve = 2, i.level.curve = 0.95, 
-       i.type.threshold = 5, i.level.threshold = 0.95, i.n.max = -1, i.tails = 1, 
-       i.type.boot = "norm", i.iter.boot = 10000, i.method = 2, i.param = 2.8, 
-	   i.levels = c(0.40,0.90,0.975), i.seasons = 10)
+epimem(i.data, i.type = 2, i.level = 0.95, i.type.curve = 2, 
+       i.level.curve = 0.95, i.type.threshold = 5, 
+       i.level.threshold = 0.95, i.n.max = -1, i.tails = 1, 
+       i.type.boot = "norm", i.iter.boot = 10000, i.method = 2, 
+       i.param = 2.8, i.levels = c(0.40,0.90,0.975), i.seasons = 10)
 \method{print}{flu}(x, ...)
 \method{summary}{flu}(object, ...)
 \method{plot}{flu}(x, ...)
 }
 \arguments{
   \item{i.data}{
-Matrix of input data.
+Data frame of input data.
 }
   \item{i.type}{
 Type of confidence interval (general).
@@ -78,7 +79,7 @@ Not used.
 }
 }
 \details{
-Input data is a matrix containing rates that represent historical influenza surveillance 
+Input data is a data frame containing rates that represent historical influenza surveillance 
 data. It can start and end at any given week (tipically at week 40th), and rates can be 
 expressed as per 100,000 inhabitants (or per consultations, if population is not 
 available) or any other scale.\cr
@@ -138,8 +139,6 @@ DOI:10.1111/j.1750-2659.2012.00422.x.
 Jose E. Lozano Alonso <lozalojo@jcyl.es>. 
 }
 \examples{
-library(mem)
-
 ## Castilla y Leon Influenza Rates data 
 data(flucyl)
 ## Finds the timing of the first season: 2001/2002

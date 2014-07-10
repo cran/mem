@@ -3,7 +3,7 @@
 \alias{mem}
 \docType{package}
 \title{
-Moving Epidemics Method R Package
+Moving Epidemic Method R Package
 }
 \description{
 This package creates the model described in the \emph{Moving Epidemics Method} (MEM), 
@@ -14,11 +14,11 @@ used to monitor influenza activity during the seasonal surveillance.
 Package: \tab mem\cr
 Type: \tab Package\cr
 Title: \tab Moving Epidemics Method R Package.\cr
-Version: \tab 1.3\cr
-Date: \tab 2013-06-24\cr
+Version: \tab 1.4\cr
+Date: \tab 2014-07-10\cr
 Author: \tab Jose E. Lozano Alonso <lozalojo@jcyl.es>\cr
 Maintainer: \tab Jose E. Lozano Alonso <lozalojo@jcyl.es>\cr
-Depends: \tab R (>= 3.00.1)\cr
+Depends: \tab R (>= 3.1.0)\cr
 Description: \tab Modelization of influenza epidemics in order to monitor future 
 activity.\cr
 License: \tab GPL (>= 2)\cr
@@ -39,7 +39,6 @@ DOI:10.1111/j.1750-2659.2012.00422.x.
 }
 \keyword{ package }
 \examples{
-require(mem)
 ## Castilla y Leon Influenza Rates data 
 data(flucyl)
 ## Optimal timing of an epidemic
