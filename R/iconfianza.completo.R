@@ -1,5 +1,7 @@
-iconfianza.completo <-
-function(i.datos,tipo=1,i.nivel=0.95){
+#' Int. Confianza de 2 y 1 cola, por encima y por debajo. De la media y el punto.
+#'
+#' @keywords internal
+iconfianza.completo<-function(i.datos,tipo=1,i.nivel=0.95){
   datos<-as.numeric(i.datos)
   datos[datos==-Inf]<-NA
   datos[datos==Inf]<-NA
@@ -14,7 +16,7 @@ function(i.datos,tipo=1,i.nivel=0.95){
     resultados$dos.colas<-c(med-pnor.2*std,med+pnor.2*std)
     resultados$mayor<-c(med-pnor.1*std,Inf)
     resultados$menor<-c(-Inf,med+pnor.1*std)
-    
+
   }
   return(resultados)
 }

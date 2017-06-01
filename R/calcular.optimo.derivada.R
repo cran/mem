@@ -1,5 +1,7 @@
-calcular.optimo.derivada <-
-function(i.curva.map){
+#' calculates optimum: second derivative equals 0 (change signs from - to +, or + to -)
+#'
+#' @keywords internal
+calcular.optimo.derivada<-function(i.curva.map){
   x<-i.curva.map[,1]
   y<-i.curva.map[,2]
   y.s<-loess(y~x)$fitted

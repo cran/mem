@@ -1,5 +1,7 @@
-extraer.datos.pre.epi <-
-function(i.epi){
+#' Extract pre-epidemic hightest rates
+#'
+#' @keywords internal
+extraer.datos.pre.epi<-function(i.epi){
   resultado<-as.data.frame(i.epi[[1]]$pre.epi)
   m<-ncol(resultado)
   n<-length(names(i.epi))

@@ -1,5 +1,7 @@
-calcular.map <-
-function(i.datos){
+#' calculates map curve
+#'
+#' @keywords internal
+calcular.map<-function(i.datos){
   datos<-as.vector(as.matrix(i.datos))
   semanas<-length(datos)
   maxsumasemanas<-array(dim=c(semanas,5))
@@ -13,7 +15,7 @@ function(i.datos){
     maxsumasemanas[s,4]<-min((1:(semanas+1-s))[max.fix.na(sumasemanas)==sumasemanas])
     maxsumasemanas[s,5]<-maxsumasemanas[s,4]+s-1
   }
-	sumaanual<-sum(datos,na.rm=TRUE)
-	maxsumasemanas[,2]<-100*maxsumasemanas[,3]/sumaanual
-	return(maxsumasemanas)
+  sumaanual<-sum(datos,na.rm=TRUE)
+  maxsumasemanas[,2]<-100*maxsumasemanas[,3]/sumaanual
+  return(maxsumasemanas)
 }

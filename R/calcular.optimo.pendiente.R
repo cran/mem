@@ -1,5 +1,7 @@
-calcular.optimo.pendiente <-
-function(i.curva.map){
+#' calculates optimum: slope matches the overall slope
+#'
+#' @keywords internal
+calcular.optimo.pendiente<-function(i.curva.map){
   x<-i.curva.map[,1]
   y<-i.curva.map[,2]
   y.s<-loess(y~x)$fitted
