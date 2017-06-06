@@ -1,5 +1,5 @@
-1b541d56c9f5d4312f17003a34799f77 *DESCRIPTION
-d6a93902ad864a5f085b41da2d160d27 *NAMESPACE
+5a6ee000c9e4fc917fc467c7991ad557 *DESCRIPTION
+98b340750b9fd8a99e81d8d1ca82d70b *NAMESPACE
 5009a17fb7ca7aa10dda152363c05109 *R/add.alpha.R
 b8ef4caceb1e19e0cbb3ced7808e4495 *R/calcular.indicadores.2.timings.R
 c1882f196d47597f9b5677cd2830f777 *R/calcular.indicadores.R
@@ -31,12 +31,12 @@ a2c1d5468e2fb7c8be29a41a5c998017 *R/iconfianza.x.R
 7791f5985047c7246cd806b5b8efa107 *R/max.n.valores.R
 077642fd4d2613c27c400dc38079662b *R/mem-package.R
 5c3231f6186e58f397872721dca4b7aa *R/memevolution.R
-d3bf6806c8d580c5f364b0a51ac5fca9 *R/memgoodness.R
+13cfd3c1e57de8aab5700673f3d2baf6 *R/memgoodness.R
 d2cf573f4293e9101085979d48e4fd72 *R/memintensity.R
 a861365254b0c326aaffe6edc1f5ad40 *R/memmodel.R
 af370bf0c1f5754a187ab87e8c443c41 *R/memstability.R
 d32eced0f3a977148cb7725a25141671 *R/memsurveillance.R
-1af89226509bc51c6acf08c7ccfc677b *R/memsurveillance.animated.R
+4ab933676e60f5f45ed4690fc27be084 *R/memsurveillance.animated.R
 f018306d5af7e6c0c012eba5835c5b56 *R/memtiming.R
 ad8cceb6d6e83d8f96c3befed6269048 *R/memtrend.R
 35501d2a198ed4671037b281641dcd0e *R/min.fix.na.R
@@ -55,7 +55,7 @@ d6f8e51c674a05b75317c670bbc61515 *R/transformdata.R
 73a94f096bc13ceb1d2f9df370c68899 *R/transformseries.R
 e7dbbe918dceb2157de9629ad584d037 *R/transformseries.odd.R
 29e32489c7d6d60cb63e4dce1f9e9cf4 *R/transformseries.twowaves.R
-48776ce66702c639915544c076669924 *README.md
+cd02a19017d0fb6c443800c3d196735b *README.md
 c403a721636e764e1ac700b537fee594 *data/flucyl.rda
 ae7024d57f196c411ec1ffb622322e04 *data/flucylraw.rda
 7ac8271807c62598ae66f8891da3d4c0 *man/add.alpha.Rd
@@ -94,7 +94,7 @@ a908e537f98bfa35e7bec1db4c51ba4c *man/memevolution.Rd
 d20dd416d936d1e9da0e9c2b4d34b8e1 *man/memmodel.Rd
 57a57b4495723b5e9aee7a7700521d2a *man/memstability.Rd
 85ae3dc6d70622ed7bdc79372397190a *man/memsurveillance.Rd
-ab823841936e99fcfbf2e7e97c457517 *man/memsurveillance.animated.Rd
+a750df15038b4c5027c5752c7c188b42 *man/memsurveillance.animated.Rd
 61cb4ec261d39ae09d90df2c472cbd7d *man/memtiming.Rd
 628e1ed78ced08f41a9a8e4fe9d2b077 *man/memtrend.Rd
 0bab244c15d3bf1ccfe59c45e8e50eb3 *man/min.fix.na.Rd
