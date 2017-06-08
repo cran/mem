@@ -1,5 +1,5 @@
-5a6ee000c9e4fc917fc467c7991ad557 *DESCRIPTION
-98b340750b9fd8a99e81d8d1ca82d70b *NAMESPACE
+66069bf3cfad07ac57445ada9933b96c *DESCRIPTION
+d6a93902ad864a5f085b41da2d160d27 *NAMESPACE
 5009a17fb7ca7aa10dda152363c05109 *R/add.alpha.R
 b8ef4caceb1e19e0cbb3ced7808e4495 *R/calcular.indicadores.2.timings.R
 c1882f196d47597f9b5677cd2830f777 *R/calcular.indicadores.R
@@ -36,7 +36,7 @@ d2cf573f4293e9101085979d48e4fd72 *R/memintensity.R
 a861365254b0c326aaffe6edc1f5ad40 *R/memmodel.R
 af370bf0c1f5754a187ab87e8c443c41 *R/memstability.R
 d32eced0f3a977148cb7725a25141671 *R/memsurveillance.R
-4ab933676e60f5f45ed4690fc27be084 *R/memsurveillance.animated.R
+bcb6ca0331af14539c261791b580fd07 *R/memsurveillance.animated.R
 f018306d5af7e6c0c012eba5835c5b56 *R/memtiming.R
 ad8cceb6d6e83d8f96c3befed6269048 *R/memtrend.R
 35501d2a198ed4671037b281641dcd0e *R/min.fix.na.R
@@ -94,7 +94,7 @@ a908e537f98bfa35e7bec1db4c51ba4c *man/memevolution.Rd
 d20dd416d936d1e9da0e9c2b4d34b8e1 *man/memmodel.Rd
 57a57b4495723b5e9aee7a7700521d2a *man/memstability.Rd
 85ae3dc6d70622ed7bdc79372397190a *man/memsurveillance.Rd
-a750df15038b4c5027c5752c7c188b42 *man/memsurveillance.animated.Rd
+dd15124ac1b4b80f0a9a5ff198b855c6 *man/memsurveillance.animated.Rd
 61cb4ec261d39ae09d90df2c472cbd7d *man/memtiming.Rd
 628e1ed78ced08f41a9a8e4fe9d2b077 *man/memtrend.Rd
 0bab244c15d3bf1ccfe59c45e8e50eb3 *man/min.fix.na.Rd
