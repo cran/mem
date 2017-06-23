@@ -1,5 +1,5 @@
-66069bf3cfad07ac57445ada9933b96c *DESCRIPTION
-d6a93902ad864a5f085b41da2d160d27 *NAMESPACE
+680e95912634aa69a893a615101b10bf *DESCRIPTION
+8993458e1b079418c7e5765b48b9cb5d *NAMESPACE
 5009a17fb7ca7aa10dda152363c05109 *R/add.alpha.R
 b8ef4caceb1e19e0cbb3ced7808e4495 *R/calcular.indicadores.2.timings.R
 c1882f196d47597f9b5677cd2830f777 *R/calcular.indicadores.R
@@ -10,6 +10,8 @@ dcb1ad75886862889e3c721251191732 *R/calcular.optimo.criterio.R
 613719bda9ecaf7e14554494f0adf13c *R/calcular.optimo.original.R
 bb01b61adbdd21c6613a12a757ac9bea *R/calcular.optimo.pendiente.R
 1649e3ce8ecbc22bcaf60bd72a101a4f *R/comparar.metodos.R
+c8fc27f8415fe8f4ccf685bcbfa9f394 *R/epimem.R
+294521b86939a599847ec55fac4d399f *R/epitiming.R
 b28e7766c0fc35e528b0f2ff326c0ab5 *R/extraer.datos.curva.map.R
 6d5f376e2a10903184d995438ca3dddf *R/extraer.datos.epi.R
 8fceba92e92f302a8b44bab2dfecdaa4 *R/extraer.datos.optimo.map.R
@@ -33,7 +35,7 @@ a2c1d5468e2fb7c8be29a41a5c998017 *R/iconfianza.x.R
 5c3231f6186e58f397872721dca4b7aa *R/memevolution.R
 13cfd3c1e57de8aab5700673f3d2baf6 *R/memgoodness.R
 d2cf573f4293e9101085979d48e4fd72 *R/memintensity.R
-a861365254b0c326aaffe6edc1f5ad40 *R/memmodel.R
+ec8f07e4f3827599662541b346258a14 *R/memmodel.R
 af370bf0c1f5754a187ab87e8c443c41 *R/memstability.R
 d32eced0f3a977148cb7725a25141671 *R/memsurveillance.R
 bcb6ca0331af14539c261791b580fd07 *R/memsurveillance.animated.R
@@ -55,7 +57,7 @@ d6f8e51c674a05b75317c670bbc61515 *R/transformdata.R
 73a94f096bc13ceb1d2f9df370c68899 *R/transformseries.R
 e7dbbe918dceb2157de9629ad584d037 *R/transformseries.odd.R
 29e32489c7d6d60cb63e4dce1f9e9cf4 *R/transformseries.twowaves.R
-cd02a19017d0fb6c443800c3d196735b *README.md
+e28201e0ffe8a78b91950803c75c1f35 *README.md
 c403a721636e764e1ac700b537fee594 *data/flucyl.rda
 ae7024d57f196c411ec1ffb622322e04 *data/flucylraw.rda
 7ac8271807c62598ae66f8891da3d4c0 *man/add.alpha.Rd
@@ -68,6 +70,8 @@ a079244d49f45613d0ec37caf4e9bdf6 *man/calcular.optimo.Rd
 d11e48a223a0221624b102dc1479f0b2 *man/calcular.optimo.original.Rd
 18ff62dc817a259dce47b80dcd8f904e *man/calcular.optimo.pendiente.Rd
 36eb0b587ae6d0b715136ffa0d6e0798 *man/comparar.metodos.Rd
+ca61dd11a0813652f9ba0c65f4d0898d *man/epimem.Rd
+d153ff13b093635cbcedf412df685cb3 *man/epitiming.Rd
 9140d6be558a9a8adb7f929d1c74cff6 *man/extraer.datos.curva.map.Rd
 dcdde5c7f5a175f0368c58cbc224f609 *man/extraer.datos.epi.Rd
 90670692efda5a03f856cc03a1f75fca *man/extraer.datos.optimo.map.Rd
