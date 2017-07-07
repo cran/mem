@@ -1,8 +1,7 @@
-#' evolution of estimators
+#' @title Evolution of estimators
 #'
+#' @description
 #' Function \code{memevolution} analyzes the evolution of mem estimators
-#'
-#' To be written
 #'
 #' @name memevolution
 #'
@@ -14,7 +13,41 @@
 #' @return
 #' \code{memevolution} returns a list.
 #' A list containing at least the following components:
-#'   \item{evolution.data}{data for each value analysed.}
+#' \itemize{
+#'   \item{evolution.data} {data for each value analysed.}
+#' }
+#'
+#' @details
+#' Shows the evolution of some indicators across time. The indicators are: duration of the epidemic,
+#' start of the epidemic, epidemic percentage, pre-epidemic, post-epidemic and intensity thresholds.
+#'
+#' Values per season are the estimates of the indicator for this specific season calculated according the
+#' \link{memmodel} options: cross or sequential (validation option), maximum number of seasons to use in calculations.
+#' In \link{memmodel} is it also possible to select the method used to calculate indicators and the level of
+#' confidence of the confidence intervals.
+#'
+#' To clarify how it is calculated, the \code{evolution.seasons} showss for each x-axis point the seasons
+#' selected to calculate thresholds. Each row is a different season and in each column it is shown if that
+#' specific season has been used to calculate the indicators. If \code{TRUE}, it has been used, if \code{NO}, it hasn't.
+#' In the last row, called Next, the indicators are calculated for the upcoming next season.
+#'
+#' Note that if you select sequential validation, first points in the graphs calculate thresholds
+#' using less data (there are less seasons before the current data than the max. seasons value), and
+#' this will affect the range of confidence intervals.
+#'
+#' There are four indicators:
+#'
+#' \itemize{
+#' \item Duration: Average duration of the epidemic and its confidence interval.
+#' \item Start: Average start of the epidemic and its confidence interval.
+#' \item Epidemic percentage: The sum of the values (cases/rates) in the epidemic period
+#' divided by the total sum of values of the whole surveillance period. It's a coverage percentage
+#' of the epidemic period. And its confidence interval.
+#' \item Thresholds: Pre-epidemic, post-epidemic and intensity thresholds.
+#' }
+#'
+#' The confidence intervals for these indicators are calculated using the other CI and other CI.
+#' level parameters of \link{memmodel}.
 #'
 #' @examples
 #' # Castilla y Leon Influenza Rates data
@@ -26,16 +59,19 @@
 #' @author Jose E. Lozano \email{lozalojo@@gmail.com}
 #'
 #' @references
-#' Vega Alonso, Tomas, Jose E Lozano Alonso, Raul Ortiz de Lejarazu, and Marisol Gutierrez Perez. 2004.
-#' Modelling Influenza Epidemic: Can We Detect the Beginning and Predict the Intensity and Duration?
-#' International Congress Series, Options for the Control of Influenza V. Proceedings of the International
-#' Conference on Options for the Control of Influenza V, 1263 (June): 281-83. doi:10.1016/j.ics.2004.02.121.\cr
-#' Vega, Tomas, Jose Eugenio Lozano, Tamara Meerhoff, Rene Snacken, Joshua Mott, Raul Ortiz de Lejarazu, and
-#' Baltazar Nunes. 2013. Influenza Surveillance in Europe: Establishing Epidemic Thresholds by the Moving
-#' Epidemic Method. Influenza and Other Respiratory Viruses 7 (4): 546-58. doi:10.1111/j.1750-2659.2012.00422.x.\cr
-#' Vega, Tomas, Jose E. Lozano, Tamara Meerhoff, Rene Snacken, Julien Beaute, Pernille Jorgensen, Raul Ortiz
-#' de Lejarazu, et al. 2015. Influenza Surveillance in Europe: Comparing Intensity Levels Calculated Using
-#' the Moving Epidemic Method. Influenza and Other Respiratory Viruses 9 (5): 234-46. doi:10.1111/irv.12330.
+#' Vega T, Lozano JE, Ortiz de Lejarazu R, Gutierrez Perez M. Modelling influenza epidemic - can we
+#' detect the beginning and predict the intensity and duration? Int Congr Ser. 2004 Jun;1263:281-3.
+#'
+#' Vega T, Lozano JE, Meerhoff T, Snacken R, Mott J, Ortiz de Lejarazu R, et al. Influenza surveillance
+#' in Europe: establishing epidemic thresholds by the moving epidemic method. Influenza Other Respir
+#' Viruses. 2013 Jul;7(4):546-58. DOI:10.1111/j.1750-2659.2012.00422.x.
+#'
+#' Vega T, Lozano JE, Meerhoff T, Snacken R, Beaute J, Jorgensen P, et al. Influenza surveillance in
+#' Europe: comparing intensity levels calculated using the moving epidemic method. Influenza Other
+#' Respir Viruses. 2015 Sep;9(5):234-46. DOI:10.1111/irv.12330.
+#'
+#' Lozano JE. lozalojo/mem: Second release of the MEM R library. Zenodo [Internet]. [cited 2017 Feb 1];
+#' Available from: \url{https://zenodo.org/record/165983}. DOI:10.5281/zenodo.165983
 #'
 #' @keywords influenza
 #'

@@ -2,6 +2,7 @@
 #'
 #' @keywords internal
 #' @importFrom graphics rect
+#' @importFrom grDevices png
 calcular.indicadores.2.timings<-function(i.current,
                                i.timing.1,
                                i.timing.2,
@@ -73,15 +74,16 @@ calcular.indicadores.2.timings<-function(i.current,
 
     if (i.graph.file.name=="") graph.name<-"surveillance graph" else graph.name<-i.graph.file.name
 
-    if (i.graph.file==T) tiff(filename=paste(i.output,"/",graph.name,".tiff",sep=""),width=8,height=6,units="in",pointsize="12",
-           compression="lzw",bg="white",res=300,antialias="none")
+    if (i.graph.file==T) png(filename=paste(i.output,"/", graph.name,".png",sep=""),
+                             width=8, height=6, units="in", pointsize="12",
+                             bg="white", res=300, antialias="none")
 
     etiquetas<-c("Weekly rates")
     tipos<-c(1)
     anchos<-c(3)
     colores<-c("#808080")
 
-      opar<-par(mar=c(4,4,1,8)+0.1,xpd=TRUE)
+      opar<-par(mar=c(4,4,3,8)+0.1,xpd=TRUE)
       #,mgp=c(3,0.5,0),xpd=T)
       # Grafico principal
       matplot(range.x,
@@ -198,8 +200,14 @@ calcular.indicadores.2.timings<-function(i.current,
       par(opar)
       if (i.graph.file==T){
         dev.off()
-        cat("graph created: ",getwd(),"/",i.output,"/",graph.name,".tiff","\n",sep="")
+        cat("graph created: ",getwd(),"/",i.output,"/",graph.name,".png","\n",sep="")
       }
+
+  names(indicadores)<- c("weeks","non.missing.weeks","true.positives","false.positives",
+                                                 "true.negatives","false.negatives","sensitivity","specificity",
+                                                 "positive.predictive.value","negative.predictive.value",
+                                                 "positive.likehood.ratio","negative.likehood.ratio",
+                                                 "percent.agreement","matthews.correlation.coefficient")
 
   return(list(resultado.1=resultado.1,resultado.2=resultado.2,resultado.3=resultado.3,indicadores=indicadores))
 }

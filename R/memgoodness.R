@@ -1,8 +1,8 @@
-#' Goodness of fit of the mem
+#' @title Goodness of fit of the mem
 #'
-#' Function \code{memgoodness} perform the goodness of fit of the mem
-#'
-#' To be written
+#' @description
+#' Function \code{memgoodness} calculates different indicators related to the goodness of the MEM
+#' for detecting the epidemics, using data from the model and using all data in the original dataset.
 #'
 #' @name memgoodness
 #'
@@ -35,11 +35,53 @@
 #' @return
 #' \code{memgoodness} returns a list.
 #' A list containing at least the following components:
-#'   \item{validity.data}{data for each value analysed.}
-#'   \item{results}{Total weeks, non-missing weeks, true positives, false positives
+#' \itemize{
+#'   \item{validity.data} {data for each value analysed.}
+#'   \item{results} {Total weeks, non-missing weeks, true positives, false positives
 #' true negatives, false negatives, sensitivity, specificity .}
-#'   \item{peaks}{distribution of the levels of intensity of the peaks.}
-#'   \item{peaks.data}{Peak value, week of the peak value, epidemic and intensity thresholds and intensity level of each season analysed.}
+#'   \item{peaks} {distribution of the levels of intensity of the peaks.}
+#'   \item{peaks.data} {Peak value, week of the peak value, epidemic and intensity thresholds and intensity level of each season analysed.}
+#' }
+#'
+#' @details
+#' The indicators calculated are sensitivity, specificity, positive predictive value, negative
+#' predictive value, percent agreement and the Matthews correlation coefficient.
+#'
+#' How goodness is calculated:
+#'
+#' MEM calculates goodness indicators in an iterative process. In each iteration:
+#'
+#' \enumerate{
+#' \item For one particular season the timing is calculated to determine which weeks are inside
+#' the pre, post and epidemic periods. This is used as the real data: a real positive outcome
+#' (epidemic weeks) and a real negative outcome (pre and post-epidemic weeks).
+#' \item With a set of seasons, pre-epidemic threshold is calculated. This threshold is compared
+#' with values from the season selected in the first step and see if values are above or below the
+#' threshold. This is used as the observed data: an observed positive outcome (week value above
+#' the threshold), and observed negative outcome (week value below the threshold).
+#' \item Each week has a real and an observed outcome, so it can be classified in:
+#' \itemize{
+#' \item True positives (TP): real positive, observed positive: values of the epidemic period above the threshold.
+#' \item True negatives (TN): real negative, observed negative: values of the non-epidemic period below the threshold.
+#' \item False positives (FP): real negative, observed positive: values of the non-epidemic period above the threshold.
+#' \item False negatives (FN): real positive, observed negative: values of the epidemic period below the threshold.
+#' }
+#' \item The process is repeated for each season in the dataset (each iteration a different value
+#' until all seasons have been processed).
+#' \item All TP, TN, FP and FN are pooled together and sensitivity, specificity, positive predictive value,
+#' negative predictive value, percent agreement and the Matthews correlation coefficient are calculated.
+#' }
+#'
+#' There are two ways of deciding the set of seasons used to calculate the pre-epidemic threshold in each
+#' iteration and it is determined by the \code{i.goodness.method}.
+#'
+#' \itemize{
+#' \item Cross: For each value, the surrounding seasons (after or before the current value) are selected up
+#' to the number of Max. seasons (parameter of the Model box). To calculate the thresholds for season 2010/2011,
+#' data from 2005/2006 to 2009/2010 and from 2011/20012 to 2015/2016 will be taken.
+#' \item Sequential: Only preceding seasons are used (before the current value) up to the number of Max. seasons.
+#' To calculate the thresholds for season 2010/2011, data from 2000/2001 to 2009/2010 are taken.
+#' }
 #'
 #' @examples
 #' # Castilla y Leon Influenza Rates data
@@ -52,16 +94,19 @@
 #' @author Jose E. Lozano \email{lozalojo@@gmail.com}
 #'
 #' @references
-#' Vega Alonso, Tomas, Jose E Lozano Alonso, Raul Ortiz de Lejarazu, and Marisol Gutierrez Perez. 2004.
-#' Modelling Influenza Epidemic: Can We Detect the Beginning and Predict the Intensity and Duration?
-#' International Congress Series, Options for the Control of Influenza V. Proceedings of the International
-#' Conference on Options for the Control of Influenza V, 1263 (June): 281-83. doi:10.1016/j.ics.2004.02.121.\cr
-#' Vega, Tomas, Jose Eugenio Lozano, Tamara Meerhoff, Rene Snacken, Joshua Mott, Raul Ortiz de Lejarazu, and
-#' Baltazar Nunes. 2013. Influenza Surveillance in Europe: Establishing Epidemic Thresholds by the Moving
-#' Epidemic Method. Influenza and Other Respiratory Viruses 7 (4): 546-58. doi:10.1111/j.1750-2659.2012.00422.x.\cr
-#' Vega, Tomas, Jose E. Lozano, Tamara Meerhoff, Rene Snacken, Julien Beaute, Pernille Jorgensen, Raul Ortiz
-#' de Lejarazu, et al. 2015. Influenza Surveillance in Europe: Comparing Intensity Levels Calculated Using
-#' the Moving Epidemic Method. Influenza and Other Respiratory Viruses 9 (5): 234-46. doi:10.1111/irv.12330.
+#' Vega T, Lozano JE, Ortiz de Lejarazu R, Gutierrez Perez M. Modelling influenza epidemic - can we
+#' detect the beginning and predict the intensity and duration? Int Congr Ser. 2004 Jun;1263:281-3.
+#'
+#' Vega T, Lozano JE, Meerhoff T, Snacken R, Mott J, Ortiz de Lejarazu R, et al. Influenza surveillance
+#' in Europe: establishing epidemic thresholds by the moving epidemic method. Influenza Other Respir
+#' Viruses. 2013 Jul;7(4):546-58. DOI:10.1111/j.1750-2659.2012.00422.x.
+#'
+#' Vega T, Lozano JE, Meerhoff T, Snacken R, Beaute J, Jorgensen P, et al. Influenza surveillance in
+#' Europe: comparing intensity levels calculated using the moving epidemic method. Influenza Other
+#' Respir Viruses. 2015 Sep;9(5):234-46. DOI:10.1111/irv.12330.
+#'
+#' Lozano JE. lozalojo/mem: Second release of the MEM R library. Zenodo [Internet]. [cited 2017 Feb 1];
+#' Available from: \url{https://zenodo.org/record/165983}. DOI:10.5281/zenodo.165983
 #'
 #' @keywords influenza
 #'
@@ -141,7 +186,7 @@ memgoodness<-function(i.data,
                                            i.valores.parametro.deteccion=i.detection.values,
                                            i.output=i.output,
                                            i.graph=i.graph,
-                                           i.graph.name=paste(i.prefix,"[mem] Cross ",i,sep=""))
+                                           i.graph.name=paste(i.prefix," Goodness ",i,sep=""))
         validacion[,i]<-validacion.i$indicadores.t
         rownames(validacion)<-rownames(validacion.i$indicadores.t)
         # peak
@@ -189,7 +234,7 @@ memgoodness<-function(i.data,
                                            i.valores.parametro.deteccion=i.detection.values,
                                            i.output=i.output,
                                            i.graph=i.graph,
-                                           i.graph.name=paste(i.prefix,"[mem] Seque ",i,sep=""))
+                                           i.graph.name=paste(i.prefix," Goodness ",i,sep=""))
         validacion[,i]<-validacion.i$indicadores.t
         rownames(validacion)<-rownames(validacion.i$indicadores.t)
         # peak
@@ -270,7 +315,8 @@ memgoodness<-function(i.data,
                           param.weeks.above=i.weeks.above,
                           param.output=i.output,
                           param.graph=i.graph,
-                          param.prefix=i.prefix)
+                          param.prefix=i.prefix,
+                          param.min.seasons=i.min.seasons)
   memgoodness.output$call<-match.call()
   return(memgoodness.output)
 }

@@ -1,11 +1,7 @@
-#' Creates the surveillance graph of the current season
+#' @title Creates the surveillance graph of the current season
 #'
+#' @description
 #' Function \code{memsurveillance} creates a surveillance graph for the current season.
-#'
-#' Input data must be the current season and an object of class \code{mem}. The output
-#' graph contains the weekly rates series along with the epidemic and intensity threshols
-#' located at the exact situation where the epidemic started. If there is no epidemic yet,
-#' only the epidemic threshold is placed.
 #'
 #' @name memsurveillance
 #'
@@ -33,6 +29,27 @@
 #'
 #' @return
 #' \code{memsurveillance} writes a tiff graph of the surveillance of this season.
+#'
+#' @details
+#' Input data must be the current season and an object of class \code{mem}. The output
+#' graph contains the weekly rates series along with the epidemic and intensity threshols
+#' located at the exact situation where the epidemic started. If there is no epidemic yet,
+#' only the epidemic threshold is placed.
+#'
+#' Surveillance consist on:
+#' \enumerate{
+#' \item Draw weekly values along with the pre-epidemic threshold.
+#' \item When the weekly value rises above the threshold a marker of the start of
+#' the epidemic is placed and the intensity thresholds are drawn.
+#' \item When the weekly value goes down the post-epidemic threshold, the marker of
+#' the end of the epidemic is placed and the post-epidemic threshold is added to the graph.
+#' }
+#' The Surveillance Week allows select the week to use in the surveillance, the values of
+#' the surveillance season are shown only up to this week, and the program will ignore
+#' values past this week.
+#'
+#' The Force epidemic start allows to force the placement of the epidemic start marker
+#' at a given week instead of using the first week above the epidemic threshold.
 #'
 #' @examples
 #' # Castilla y Leon Influenza Rates data
@@ -66,16 +83,19 @@
 #' @author Jose E. Lozano \email{lozalojo@@gmail.com}
 #'
 #' @references
-#' Vega Alonso, Tomas, Jose E Lozano Alonso, Raul Ortiz de Lejarazu, and Marisol Gutierrez Perez. 2004.
-#' Modelling Influenza Epidemic: Can We Detect the Beginning and Predict the Intensity and Duration?
-#' International Congress Series, Options for the Control of Influenza V. Proceedings of the International
-#' Conference on Options for the Control of Influenza V, 1263 (June): 281-83. doi:10.1016/j.ics.2004.02.121.\cr
-#' Vega, Tomas, Jose Eugenio Lozano, Tamara Meerhoff, Rene Snacken, Joshua Mott, Raul Ortiz de Lejarazu, and
-#' Baltazar Nunes. 2013. Influenza Surveillance in Europe: Establishing Epidemic Thresholds by the Moving
-#' Epidemic Method. Influenza and Other Respiratory Viruses 7 (4): 546-58. doi:10.1111/j.1750-2659.2012.00422.x.\cr
-#' Vega, Tomas, Jose E. Lozano, Tamara Meerhoff, Rene Snacken, Julien Beaute, Pernille Jorgensen, Raul Ortiz
-#' de Lejarazu, et al. 2015. Influenza Surveillance in Europe: Comparing Intensity Levels Calculated Using
-#' the Moving Epidemic Method. Influenza and Other Respiratory Viruses 9 (5): 234-46. doi:10.1111/irv.12330.
+#' Vega T, Lozano JE, Ortiz de Lejarazu R, Gutierrez Perez M. Modelling influenza epidemic - can we
+#' detect the beginning and predict the intensity and duration? Int Congr Ser. 2004 Jun;1263:281-3.
+#'
+#' Vega T, Lozano JE, Meerhoff T, Snacken R, Mott J, Ortiz de Lejarazu R, et al. Influenza surveillance
+#' in Europe: establishing epidemic thresholds by the moving epidemic method. Influenza Other Respir
+#' Viruses. 2013 Jul;7(4):546-58. DOI:10.1111/j.1750-2659.2012.00422.x.
+#'
+#' Vega T, Lozano JE, Meerhoff T, Snacken R, Beaute J, Jorgensen P, et al. Influenza surveillance in
+#' Europe: comparing intensity levels calculated using the moving epidemic method. Influenza Other
+#' Respir Viruses. 2015 Sep;9(5):234-46. DOI:10.1111/irv.12330.
+#'
+#' Lozano JE. lozalojo/mem: Second release of the MEM R library. Zenodo [Internet]. [cited 2017 Feb 1];
+#' Available from: \url{https://zenodo.org/record/165983}. DOI:10.5281/zenodo.165983
 #'
 #' @keywords influenza
 #'
