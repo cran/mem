@@ -1,5 +1,5 @@
-c4036c566eef16694ea64608170ee164 *DESCRIPTION
-902ee13b7d05097412ab10bf85861565 *NAMESPACE
+106e5e46283743c3c3a2985f5d967c19 *DESCRIPTION
+760fccfdb2df883cff85189ddf0718ad *NAMESPACE
 5009a17fb7ca7aa10dda152363c05109 *R/add.alpha.R
 032f4d725af81808f4e307bc7bb94e00 *R/calcular.indicadores.2.timings.R
 02f5c7e467337a259d7e881f4331d087 *R/calcular.indicadores.R
@@ -35,7 +35,7 @@ a2c1d5468e2fb7c8be29a41a5c998017 *R/iconfianza.x.R
 eb02e80de7ae1779a250d1e0a39486ee *R/memevolution.R
 769a0d5289271c7390d11cf3effa1f4f *R/memgoodness.R
 10a87f96ac75868b3e91b84c4317c4ff *R/memintensity.R
-5afdb27b34565bc1a192d7fbbbc433fb *R/memmodel.R
+0695bf5e99056e814636560135507448 *R/memmodel.R
 083cf2027f4fca821b9551375227d195 *R/memstability.R
 1dfdaed08841683262d76cb018fe1fde *R/memsurveillance.R
 5cf21f7e4941f768c7ec5bd29fd3a50b *R/memsurveillance.animated.R
@@ -54,9 +54,9 @@ a44361314e9b58ab62ea9b223d86a398 *R/output.ci.R
 832b3ccebfab96c0252d51ba64f79edc *R/suavizado.R
 452d48163ce9dccb897fdc47ee38df73 *R/transformdata.R
 8d7f39fa7feeb90b73d77e6d155915e6 *R/transformdata.back.R
-c89028da98defa964683165f62034c03 *R/transformseries.R
+ae650e4e2e8830cc54efa9825e65055a *R/transformseries.R
 526ff394b0a516dc1729df18517ab94c *R/transformseries.odd.R
-f2754b9255702bfbfe8a2bbd61ae4415 *R/transformseries.twowaves.R
+95fc489007d50132f6b6a6725c952358 *R/transformseries.twowaves.R
 614fa46c00c736d2ff70125c6d8dfd9b *README.md
 c403a721636e764e1ac700b537fee594 *data/flucyl.rda
 ae7024d57f196c411ec1ffb622322e04 *data/flucylraw.rda
@@ -114,6 +114,6 @@ aced7cf99efed3952759e7235e175189 *man/processPlots.Rd
 1914ddde971033b724e6fa3a99833111 *man/suavizado.Rd
 8d7966be0ba80e215be95b731b08613f *man/transformdata.Rd
 f5da72c67dba03419a6c64c37eeadf29 *man/transformdata.back.Rd
-5a43376323a17ee3904a8ee408c10b61 *man/transformseries.Rd
+db7f7cc895d260470a7d4c26259ae416 *man/transformseries.Rd
 52be2af00d5bc541740dda88bb414a28 *man/transformseries.odd.Rd
-b3100b3639dd72f84c16c6e986a6d76d *man/transformseries.twowaves.Rd
+fdd049cf58e47ae5fc7fd82855b3ce91 *man/transformseries.twowaves.Rd
