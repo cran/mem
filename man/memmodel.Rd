@@ -9,8 +9,8 @@ memmodel(i.data, i.seasons = 10, i.type.threshold = 5,
   i.level.threshold = 0.95, i.tails.threshold = 1, i.type.intensity = 6,
   i.level.intensity = c(0.4, 0.9, 0.975), i.tails.intensity = 1,
   i.type.curve = 2, i.level.curve = 0.95, i.type.other = 3,
-  i.level.other = 0.95, i.method = 2, i.param = 2.8, i.n.max = -1,
-  i.type.boot = "norm", i.iter.boot = 10000)
+  i.level.other = 0.95, i.method = 2, i.param = 2.8, i.centering = -1,
+  i.n.max = -1, i.type.boot = "norm", i.iter.boot = 10000)
 }
 \arguments{
 \item{i.data}{Data frame of input data.}
@@ -40,6 +40,8 @@ memmodel(i.data, i.seasons = 10, i.type.threshold = 5,
 \item{i.method}{Method to calculate the optimal timing of the epidemic.}
 
 \item{i.param}{Parameter to calculate the optimal timing of the epidemic.}
+
+\item{i.centering}{Number of weeks to center the moving seasons.}
 
 \item{i.n.max}{Number of pre-epidemic values used to calculate the threshold.}
 
@@ -89,11 +91,16 @@ All three parameters must be a number between \code{1} and \code{6}:
 \itemize{
 \item{1} {Arithmetic mean and mean confidence interval.}
 \item{2} {Geometric mean and mean confidence interval.}
-\item{3} {Median and the KC Method to calculate its confidence interval.}
+\item{3} {Median and the Nyblom/normal aproximation confidence interval.}
 \item{4} {Median and bootstrap confidence interval.}
 \item{5} {Arithmetic mean and point confidence interval (standard deviations).}
 \item{6} {Geometric mean and point confidence interval (standard deviations).}
 }
+
+Option \code{3} uses the Hettmansperger and Sheather (1986) and Nyblom (1992) method, 
+when there is enough sample size. If sample size is small, then the normal aproximation
+will be used as described in Conover, 1980, p. 112. Refer to EnvStats package for
+more information.
 
 Option \code{4} uses two more parameters: \code{i.type.boot} indicates which bootstrap
 method to use. The values are the same of those of the \code{\link{boot.ci}} function.
@@ -178,6 +185,14 @@ Respir Viruses. 2015 Sep;9(5):234-46. DOI:10.1111/irv.12330.
 
 Lozano JE. lozalojo/mem: Second release of the MEM R library. Zenodo [Internet]. [cited 2017 Feb 1];
 Available from: \url{https://zenodo.org/record/165983}. DOI:10.5281/zenodo.165983
+
+Hettmansperger, T. P., and S. J Sheather. 1986. Confidence Intervals Based on Interpolated Order
+Statistics. Statistics and Probability Letters 4: 75-79. doi:10.1016/0167-7152(86)90021-0.
+
+Nyblom, J. 1992. Note on Interpolated Order Statistics. Statistics and Probability Letters 14:
+129-31. doi:10.1016/0167-7152(92)90076-H.
+
+Conover, W.J. (1980). Practical Nonparametric Statistics. Second Edition. John Wiley and Sons, New York.
 }
 \author{
 Jose E. Lozano \email{lozalojo@gmail.com}
