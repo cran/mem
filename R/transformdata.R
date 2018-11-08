@@ -10,6 +10,7 @@
 #' @param i.range.x First and last surveillance week.
 #' @param i.name Name of the column to transform.
 #' @param i.max.na.per maximum percentage of na's in a season allowable, otherwise, the season is removed
+#' @param i.function function used to aggregate data when duplicate values are found for the same season and week, defaults to NULL (no aggregate function)
 #'
 #' @return
 #' \code{transformdata} returns a data.frame where each column has a different season and
@@ -51,17 +52,18 @@
 #' @keywords influenza
 #'
 #' @export
-#' @importFrom reshape2 dcast
-#' @importFrom stringr str_match
-transformdata <- function(i.data, i.range.x = NA, i.name = "rates", i.max.na.per = 100) {
+#' @importFrom stats aggregate
+#' @importFrom tidyr spread
+#' @importFrom dplyr select %>%
+transformdata <- function(i.data, i.range.x = NA, i.name = "rates", i.max.na.per = 100, i.function = NULL) {
   if (is.null(i.range.x)) i.range.x<-NA
   if (any(is.na(i.range.x)) | !is.numeric(i.range.x) | length(i.range.x)!=2) i.range.x<-c(min(as.numeric(i.data$week)),max(as.numeric(i.data$week)))
   if (i.range.x[1] < 1) i.range.x[1] <- 1
-  if (i.range.x[1] > 53) i.range.x[1] <- 53
+  if (i.range.x[1] >= 52) i.range.x[1] <- 52
   if (i.range.x[2] < 1) i.range.x[2] <- 1
-  if (i.range.x[2] > 53) i.range.x[2] <- 53
+  if (i.range.x[2] >= 52) i.range.x[2] <- 52
   if (i.range.x[1] == i.range.x[2]) i.range.x[2] <- i.range.x[2] - 1
-  if (i.range.x[2]==0) i.range.x[2]<-53
+  if (i.range.x[2]==0) i.range.x[2]<-52
   # Input scheme numbering
   week.f<-i.range.x[1]
   week.l<-i.range.x[2]
@@ -105,9 +107,15 @@ transformdata <- function(i.data, i.range.x = NA, i.name = "rates", i.max.na.per
   data.out$yrweek<-data.out$year*100+data.out$week
   data.out<-subset(data.out,!is.na(data.out$week.no))
   data.out$week<-NULL
-  data.out <- dcast(data.out, formula = week.no ~ season, fun.aggregate = NULL,
-                    value.var = "rates")
-  data.out<-merge(i.range.x.values.52,data.out,by="week.no",all.x=T)
+  # data.out <- dcast(data.out, formula = week.no ~ season, fun.aggregate = i.function,
+  #                   value.var = "rates")
+  # replace dcast for spread
+  week.no <- season <- rates <- NULL
+  if (!is.null(i.function)) data.out<-aggregate(rates ~ season + week.no, data=data.out, FUN=i.function)
+  data.out <- data.out %>%
+    select(week.no, season, rates) %>%
+    spread(season, rates)
+  data.out <- merge(i.range.x.values.52,data.out,by="week.no",all.x=T)
   data.out <- data.out[apply(data.out, 2, function(x) sum(is.na(x))/length(x) < i.max.na.per/100)]
   data.out <- data.out[order(data.out$week.no), ]
   rownames(data.out) <- data.out$week
