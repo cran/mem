@@ -4,10 +4,10 @@
 \alias{roc.analysis}
 \title{Analysis of different indicators to find the optimum value of the window parameter}
 \usage{
-roc.analysis(i.data, i.param.values = seq(2, 4, 0.1),
+roc.analysis(i.data, i.param.values = seq(1, 5, 0.1),
   i.min.seasons = 6, i.graph = F, i.graph.file = F,
   i.graph.file.name = "", i.graph.title = "", i.graph.subtitle = "",
-  i.output = ".", ...)
+  i.output = ".", i.mem.info = T, ...)
 }
 \arguments{
 \item{i.data}{Data frame of input data.}
@@ -27,6 +27,8 @@ roc.analysis(i.data, i.param.values = seq(2, 4, 0.1),
 \item{i.graph.subtitle}{subtitle of the graph.}
 
 \item{i.output}{output directory.}
+
+\item{i.mem.info}{include information about the package in the graph.}
 
 \item{...}{other paramaters to be used by memgoodness function.}
 }
@@ -53,9 +55,11 @@ which one is better for your data.
 # Castilla y Leon Influenza Rates data
 data(flucyl)
 # ROC analysis
-epi.roc<-roc.analysis(flucyl,i.param.values=seq(2.6,2.8,0.1),i.detection.values=seq(2.6,2.8,0.1))
+epi.roc <- roc.analysis(flucyl,
+  i.param.values = seq(2.6, 2.8, 0.1),
+  i.detection.values = seq(2.6, 2.8, 0.1)
+)
 epi.roc$results
-
 }
 \references{
 Vega T, Lozano JE, Ortiz de Lejarazu R, Gutierrez Perez M. Modelling influenza epidemic - can we

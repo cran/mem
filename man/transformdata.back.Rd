@@ -5,7 +5,7 @@
 \title{Data transformation}
 \usage{
 transformdata.back(i.data, i.name = "rates", i.cutoff.original = NA,
-  i.range.x.final = NA, i.fun = sum)
+  i.range.x.final = NA, i.fun = mean)
 }
 \arguments{
 \item{i.data}{Data frame of input data.}
@@ -36,8 +36,7 @@ two different years.
 # Castilla y Leon Influenza Rates data
 data(flucyl)
 # Transform data
-newdata<-transformdata.back(flucyl)$data
-
+newdata <- transformdata.back(flucyl)$data
 }
 \references{
 Vega T, Lozano JE, Ortiz de Lejarazu R, Gutierrez Perez M. Modelling influenza epidemic - can we
