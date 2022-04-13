@@ -24,12 +24,11 @@ install.packages("mem")
 
 To install the lastest development version of *mem*.
 
-
 ```
 if(!require("devtools")) install.packages("devtools")
 library("devtools")
 # install the memapp development version from GitHub
-install_github("lozalojo/mem")
+install_github("lozalojo/mem", branch = "development")
 ```
 
 ## Usage
