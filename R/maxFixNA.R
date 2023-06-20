@@ -1,7 +1,7 @@
 #' max function, removing Inf and -Inf
 #'
 #' @keywords internal
-max.fix.na <- function(minputdata) {
+maxFixNA <- function(minputdata) {
   minputdata[minputdata == Inf] <- NA
   minputdata[minputdata == -Inf] <- NA
   if (sum(!is.na(minputdata)) == 0) {

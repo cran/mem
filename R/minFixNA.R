@@ -1,7 +1,7 @@
 #' min function, removing Inf and -Inf
 #'
 #' @keywords internal
-min.fix.na <- function(minputdata) {
+minFixNA <- function(minputdata) {
   minputdata[minputdata == Inf] <- NA
   minputdata[minputdata == -Inf] <- NA
   if (sum(!is.na(minputdata)) == 0) {
